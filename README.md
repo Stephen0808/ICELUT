@@ -1,5 +1,9 @@
-# Taming Lookup Tables for Image Retouching
+# Taming Lookup Tables for Efficient Image Retouching
 
+[Paper](https://arxiv.org/pdf/2403.19238.pdf)
+## TODO
+- [ ] Add training code and config files
+- [x] Add LUT and inference code
 ## Requirements and Dependencies
 + python==3.7
 + cuda==11.1
@@ -63,7 +67,7 @@
 ### 3. Optional: Check the retouched results
 The retouched images will be saved in the default dir: ./test_image_output
 
-### 3. Optional: Check the total LUT size
+### 4. Optional: Check the total LUT size
 ```bash
 cd ./ICELUT
 du -sh *.npy
@@ -77,3 +81,6 @@ du -sh *.npy
 164K    Model_msb_fp32.npy
 ```
 Note that we use 10 Basis in codes rather than 20 in the paper. So the storage could be smaller (588KB v.s. 780KB).
+
+## Acknowledgement
+This project is based on [CLUT]([https://github.com/XPixelGroup/BasicSR](https://github.com/Xian-Bei/CLUT)). Thanks for these awesome codes!
