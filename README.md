@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/ICELUT_logo.png" height=110>
+  <img src="ICELUT/ICELUT_logo.png" height=110>
 </p>
 
 # Taming Lookup Tables for Efficient Image Retouching
