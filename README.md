@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/ICELUT_logo.png" height=110>
+</p>
+
 # Taming Lookup Tables for Efficient Image Retouching
 
 [Paper](https://arxiv.org/pdf/2403.19238.pdf)
@@ -83,4 +87,4 @@ du -sh *.npy
 Note that we use 10 Basis in codes rather than 20 in the paper. So the storage could be smaller (588KB v.s. 780KB).
 
 ## Acknowledgement
-This project is based on [CLUT]([https://github.com/XPixelGroup/BasicSR](https://github.com/Xian-Bei/CLUT)). Thanks for these awesome codes!
+This project is based on [CLUT](https://github.com/Xian-Bei/CLUT). Thanks for these awesome codes!
