@@ -6,7 +6,7 @@
 
 [Paper](https://arxiv.org/pdf/2403.19238.pdf)
 
-:star: If CodeFormer is helpful to your images or projects, please help star this repo. Thanks! :hugs: 
+:star: If ICELUT is helpful to your images or projects, please help star this repo. Thanks! :hugs: 
 
 ## TODO
 - [ ] Add training code and config files
