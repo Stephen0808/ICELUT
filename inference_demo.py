@@ -9,12 +9,12 @@ import torch.nn.functional as F
 import time
 
 
-class CLUT_mul(nn.Module): 
+class ICELUT(nn.Module): 
     def __init__(self, device, nsw='10+05+10', dim=33, backbone='SRNet'):
         super().__init__()
         self.TrilinearInterpolation = TrilinearInterpolation()
         self.feature = FeatLUT(device)
-        self.classifier = torch.from_numpy(np.load('./ECCV2024_ICELUT/classifier_int8.npy'))
+        self.classifier = torch.from_numpy(np.load('./ICELUT/classifier_int8.npy'))
         self.cluster = torch.split(self.classifier, 64**2, dim=0)
         self.lut_cls = []
         for i in self.cluster:
@@ -55,7 +55,7 @@ class CLUT(nn.Module):
         self.s_Layers = nn.Parameter(torch.rand(dim, s)/5-0.1)
         self.w_Layers = nn.Parameter(torch.rand(w, dim*dim)/5-0.1)
         self.LUTs = nn.Parameter(torch.zeros(s*num*3,w))
-        basis_lut = np.load('./ECCV2024_ICELUT/Basis_lut.npy', allow_pickle=True).item()
+        basis_lut = np.load('./ICELUT/Basis_lut.npy', allow_pickle=True).item()
         self.s_Layers.data = basis_lut['s']
         self.w_Layers.data = basis_lut['w']
         self.LUTs.data = basis_lut['Basis_LUT']
@@ -84,8 +84,8 @@ class CLUT(nn.Module):
 class FeatLUT(torch.nn.Module):
     def __init__(self, device, upscale=4):
         super(FeatLUT, self).__init__()
-        self.feature_msb = torch.from_numpy(np.load('./ECCV2024_ICELUT/Model_msb_fp32.npy')).to(device)
-        self.feature_lsb = torch.from_numpy(np.load('./ECCV2024_ICELUT/Model_lsb_fp32.npy')).to(device)
+        self.feature_msb = torch.from_numpy(np.load('./ICELUT/Model_msb_fp32.npy')).to(device)
+        self.feature_lsb = torch.from_numpy(np.load('./ICELUT/Model_lsb_fp32.npy')).to(device)
         self.upscale = upscale
         self.pool = nn.AdaptiveAvgPool2d(1)
         self.weights = torch.tensor([16 * 16 * 16, 16 * 16, 16], dtype=torch.float32).to(device).view(1, 3, 1, 1)
@@ -249,9 +249,9 @@ if __name__ == "__main__":
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # device = 'cpu'
-    model = CLUT_mul(device).to(device)
+    model = ICELUT(device).to(device)
     hparams = parser.parse_args()
-    hparams.model = ["CLUT_mul", "10+05+10"]
+    hparams.model = ["ICELUT", "10+05+10"]
     test_fivek = False
     test_on_img = True
     test_speed = True
