@@ -2,7 +2,7 @@
   <img src="ICELUT/ICELUT_logo.png" height=110>
 </p>
 
-# Taming Lookup Tables for Efficient Image Retouching
+# Taming Lookup Tables for Efficient Image Retouching （ECCV2024）
 
 [Paper](https://arxiv.org/pdf/2403.19238.pdf)
 
