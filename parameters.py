@@ -19,7 +19,7 @@ parser.add_argument("--epoch", type=int, default=1)
 
 parser.add_argument("--num_epochs", type=int, default=400, help="last epoch of training (include)")
 parser.add_argument("--losses", type=str, nargs="+", default=["l1", "cos"], help="one or more loss functions")
-parser.add_argument("--model", type=str, nargs="+", default=["CLUTNet", "20+05+20"], help="model configuration, [n+s+w, dim]")
+parser.add_argument("--model", type=str, nargs="+", default=["ICELUT", "10+05+10"], help="model configuration, [n+s+w, dim]")
 # parser.add_argument("--model", type=str, nargs="+", default=['CLUTNet', '20+05+10'], help="model configuration, [nt, res, mlp, backbone]") 
 parser.add_argument("--name", type=str, help="name for this training (if None, use <model> instead)")
 
