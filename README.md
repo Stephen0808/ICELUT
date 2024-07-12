@@ -73,7 +73,7 @@
 
 ### 3. Training 
 #### Prepare the datasets
-Please refer to [3D LUT]((https://github.com/HuiZeng/Image-Adaptive-3DLUT)) to prepare the FiveK datasets.
+Please refer to [3D LUT](https://github.com/HuiZeng/Image-Adaptive-3DLUT) to prepare the FiveK datasets.
 #### Training model
 ```bash
     $python train_ICELUT.py
